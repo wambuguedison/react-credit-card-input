@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./CreditCard.css";
+import anime from "animejs";
 
 const CreditCard = () => {
 	const [creditCardValues, setCreditCardValues] = useState({});
@@ -7,6 +8,23 @@ const CreditCard = () => {
 	const handleChange = (event) => {
 		const { name, value } = event.target;
 		setCreditCardValues({ ...creditCardValues, [name]: value });
+	};
+
+	const flipCard = () => {
+		anime({
+			targets: ".credit-card-inner",
+			rotateY: "180deg",
+			duration: "100",
+			easing: "linear",
+		});
+	};
+	const unFlipCard = () => {
+		anime({
+			targets: ".credit-card-inner",
+			rotateY: "360deg",
+			duration: "100",
+			easing: "linear",
+		});
 	};
 
 	const checkSubstring = (cardNumber, length, match) => {
@@ -112,6 +130,8 @@ const CreditCard = () => {
 							maxLength="3"
 							className="text-input"
 							onChange={handleChange}
+							onFocus={flipCard}
+							onBlur={unFlipCard}
 						/>
 					</div>
 				</div>
