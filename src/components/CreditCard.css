@@ -45,6 +45,11 @@ body {
 	height: 70px;
 }
 
+#card-type svg {
+	width: 70px;
+	height: 60px;
+}
+
 .credit-card-front,
 .credit-card-back {
 	position: absolute;
