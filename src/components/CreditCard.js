@@ -1,27 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import "./CreditCard.css";
 
 const CreditCard = () => {
+	const [creditCardValues, setCreditCardValues] = useState({});
+
+	const { cardNumber, cardHolderName, cardExpirationDate, cardCVV, cardType } =
+		creditCardValues;
 	return (
 		<div className="container">
 			<div className="credit-card">
 				<div className="credit-card-inner">
 					<div className="credit-card-front">
-						<div id="card-type">visa</div>
-						<div id="card-number">4242424242424242</div>
+						<div id="card-type">{cardType}</div>
+						<div id="card-number">{cardNumber}</div>
 
 						<div id="card-expiration">
-							<div id="validthru">Valid Thru</div>
-							02/22
+							{cardExpirationDate !== "" && (
+								<div id="validthru">Valid Thru</div>
+							)}
+							{cardExpirationDate}
 						</div>
 
-						<div id="card-holder-name">my name</div>
+						<div id="card-holder-name">{cardHolderName}</div>
 					</div>
 					<div className="credit-card-back">
 						<div className="card-stripe" />
 						<div className="card-sig-container">
-							<div className="signature">my name</div>
-							CVC
+							<div className="signature">{cardHolderName}</div>
+							CVV {cardCVV}
 						</div>
 					</div>
 				</div>
@@ -59,12 +65,12 @@ const CreditCard = () => {
 					<div
 						style={{ display: "flex", flexDirection: "column", width: "50%" }}
 					>
-						<label className="input-label">CVC Security Code</label>
+						<label className="input-label">CVV Security Code</label>
 						<input
 							options={{
 								numeral: "true",
 							}}
-							placeholder="Enter CVC"
+							placeholder="Enter CVV"
 							maxLength="3"
 							className="text-input"
 						/>
