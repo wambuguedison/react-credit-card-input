@@ -59,11 +59,37 @@ body {
 	flex-direction: column;
 	justify-content: space-between;
 }
-
+/* Credit Card Back Side */
 .credit-card-back {
 	transform: rotateY(180deg);
 	margin: 0;
 	margin-left: -35px;
+}
+
+.card-strip {
+	position: absolute;
+	width: 100%;
+	background-color: black;
+	height: 75px;
+	margin-top: 20px;
+	margin-left: -20px;
+}
+
+.card-signature {
+	margin-top: 120px;
+	background-color: white;
+	color: black;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 50px;
+}
+
+.signature {
+	font-family: "Homemade Apple", cursive;
+	text-transform: lowercase;
+	overflow: hidden;
+	z-index: 9999;
 }
 
 /* Form styling */
