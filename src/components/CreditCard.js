@@ -43,6 +43,33 @@ const CreditCard = () => {
 					className="text-input"
 					maxLength="30"
 				/>
+				<div className="date-and-csv" style={{ display: "flex" }}>
+					<div
+						style={{ display: "flex", flexDirection: "column", width: "50%" }}
+					>
+						<label className="input-label">Expiration Date</label>
+						<input
+							type="month"
+							// type="date"
+							placeholder="Enter expiration date"
+							className="text-input"
+							style={{ height: "23px", fontSize: "16px", fontWeight: "100" }}
+						/>
+					</div>
+					<div
+						style={{ display: "flex", flexDirection: "column", width: "50%" }}
+					>
+						<label className="input-label">CVC Security Code</label>
+						<input
+							options={{
+								numeral: "true",
+							}}
+							placeholder="Enter CVC"
+							maxLength="3"
+							className="text-input"
+						/>
+					</div>
+				</div>
 			</form>
 		</div>
 	);
