@@ -26,6 +26,17 @@ const CreditCard = () => {
 					</div>
 				</div>
 			</div>
+			<form className="card-form">
+				<label className="input-label">Credit Card Number</label>
+				<input
+					placeholder="Enter your credit card number"
+					options={{ creditCard: true }}
+					id="number-input"
+					name="number-input"
+					className="text-input"
+					maxLength="16"
+				/>
+			</form>
 		</div>
 	);
 };
