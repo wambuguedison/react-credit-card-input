@@ -74,8 +74,8 @@ const CreditCard = () => {
 						<div id="card-holder-name">{cardHolderName}</div>
 					</div>
 					<div className="credit-card-back">
-						<div className="card-stripe" />
-						<div className="card-sig-container">
+						<div className="card-strip" />
+						<div className="card-signature">
 							<div className="signature">{cardHolderName}</div>
 							CVV {cardCVV}
 						</div>
