@@ -53,6 +53,7 @@ const CreditCard = () => {
 				setCreditCardValues({ ...creditCardValues, cardType: "" });
 			}
 		}
+		// eslint-disable-next-line
 	}, [creditCardValues.cardNumber]);
 
 	const { cardNumber, cardHolderName, cardExpirationDate, cardCVV, cardType } =
