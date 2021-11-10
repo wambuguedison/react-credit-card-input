@@ -36,6 +36,13 @@ const CreditCard = () => {
 					className="text-input"
 					maxLength="16"
 				/>
+				<label className="input-label">Card Holder Name</label>
+				<input
+					type="text"
+					placeholder="Enter card holder name"
+					className="text-input"
+					maxLength="30"
+				/>
 			</form>
 		</div>
 	);
