@@ -60,3 +60,39 @@ body {
 	margin: 0;
 	margin-left: -35px;
 }
+
+/* Form styling */
+.card-form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 435px;
+	margin-top: 50px;
+}
+
+input::placeholder {
+	color: gray;
+	font-weight: 100;
+}
+
+.input-label {
+	font-size: 12px;
+	margin-top: 10px;
+	margin-left: 5px;
+	margin-bottom: -10px;
+	color: white;
+}
+
+.text-input {
+	padding: 15px;
+	padding-left: 0px;
+	box-shadow: 0;
+	border: 0;
+	font-size: 20px;
+	margin-bottom: 10px;
+	outline: none;
+	margin: 5px;
+	background-color: transparent;
+	color: white;
+	border-bottom: 1px solid #ff0866;
+}
