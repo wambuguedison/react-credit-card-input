@@ -1,6 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "./CreditCard.css";
 import anime from "animejs";
+import {
+	faCcAmex,
+	faCcDinersClub,
+	faCcJcb,
+	faCcVisa,
+	faCcMastercard,
+	faCcDiscover,
+} from "@fortawesome/free-brands-svg-icons";
+import { faCreditCard } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const CreditCard = () => {
 	const [creditCardValues, setCreditCardValues] = useState({});
@@ -63,7 +73,23 @@ const CreditCard = () => {
 			<div className="credit-card">
 				<div className="credit-card-inner">
 					<div className="credit-card-front">
-						<div id="card-type">{cardType}</div>
+						<div id="card-type">
+							{cardType === "" && <FontAwesomeIcon icon={faCreditCard} />}
+							{cardType === "Discover" && (
+								<FontAwesomeIcon icon={faCcDiscover} />
+							)}
+							{cardType === "AmericanExpress" && (
+								<FontAwesomeIcon icon={faCcAmex} />
+							)}
+							{cardType === "Visa" && <FontAwesomeIcon icon={faCcVisa} />}
+							{cardType === "DinersClub" && (
+								<FontAwesomeIcon icon={faCcDinersClub} />
+							)}
+							{cardType === "JCB" && <FontAwesomeIcon icon={faCcJcb} />}
+							{cardType === "MasterCard" && (
+								<FontAwesomeIcon icon={faCcMastercard} />
+							)}
+						</div>
 						<div id="card-number">{cardNumber}</div>
 						<div id="card-expiration">
 							{cardExpirationDate !== "" && (
