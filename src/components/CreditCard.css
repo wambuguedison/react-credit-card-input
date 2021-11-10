@@ -38,6 +38,11 @@ body {
 	transform-style: preserve-3d;
 }
 
+#card-type {
+	text-align: right;
+	height: 70px;
+}
+
 .credit-card-front,
 .credit-card-back {
 	position: absolute;
