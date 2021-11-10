@@ -37,3 +37,26 @@ body {
 	transition: transform 0.8s;
 	transform-style: preserve-3d;
 }
+
+.credit-card-front,
+.credit-card-back {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+	border-radius: 20px;
+	background: linear-gradient(to top right, #0099ff 0%, #ff0866 100%);
+	padding: 20px;
+}
+
+.credit-card-front {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.credit-card-back {
+	transform: rotateY(180deg);
+	margin: 0;
+	margin-left: -35px;
+}
