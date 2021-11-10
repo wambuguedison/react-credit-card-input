@@ -4,6 +4,11 @@ import "./CreditCard.css";
 const CreditCard = () => {
 	const [creditCardValues, setCreditCardValues] = useState({});
 
+	const handleChange = (event) => {
+		const { name, value } = event.target;
+		setCreditCardValues({ ...creditCardValues, [name]: value });
+	};
+
 	const { cardNumber, cardHolderName, cardExpirationDate, cardCVV, cardType } =
 		creditCardValues;
 	return (
@@ -38,16 +43,19 @@ const CreditCard = () => {
 					placeholder="Enter your credit card number"
 					options={{ creditCard: true }}
 					id="number-input"
-					name="number-input"
+					name="cardNumber"
 					className="text-input"
 					maxLength="16"
+					onChange={handleChange}
 				/>
 				<label className="input-label">Card Holder Name</label>
 				<input
 					type="text"
+					name="cardHolderName"
 					placeholder="Enter card holder name"
 					className="text-input"
 					maxLength="30"
+					onChange={handleChange}
 				/>
 				<div className="date-and-csv" style={{ display: "flex" }}>
 					<div
@@ -57,8 +65,10 @@ const CreditCard = () => {
 						<input
 							type="month"
 							// type="date"
+							name="cardExpirationDate"
 							placeholder="Enter expiration date"
 							className="text-input"
+							onChange={handleChange}
 							style={{ height: "23px", fontSize: "16px", fontWeight: "100" }}
 						/>
 					</div>
@@ -70,9 +80,11 @@ const CreditCard = () => {
 							options={{
 								numeral: "true",
 							}}
+							name="cardCVV"
 							placeholder="Enter CVV"
 							maxLength="3"
 							className="text-input"
+							onChange={handleChange}
 						/>
 					</div>
 				</div>
