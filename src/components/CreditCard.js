@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./CreditCard.css";
 
 const CreditCard = () => {
@@ -9,6 +9,34 @@ const CreditCard = () => {
 		setCreditCardValues({ ...creditCardValues, [name]: value });
 	};
 
+	const checkSubstring = (cardNumber, length, match) => {
+		return cardNumber.substring(0, length) === match;
+	};
+
+	useEffect(() => {
+		const { cardNumber } = creditCardValues;
+		if (cardNumber) {
+			if (cardNumber[0] === "4") {
+				setCreditCardValues({ ...creditCardValues, cardType: "Visa" });
+			} else if (checkSubstring(cardNumber, 4, "6011")) {
+				setCreditCardValues({ ...creditCardValues, cardType: "Discover" });
+			} else if (checkSubstring(cardNumber, 2, "51")) {
+				setCreditCardValues({ ...creditCardValues, cardType: "MasterCard" });
+			} else if (checkSubstring(cardNumber, 2, "34")) {
+				setCreditCardValues({
+					...creditCardValues,
+					cardType: "American Express",
+				});
+			} else if (checkSubstring(cardNumber, 3, "300")) {
+				setCreditCardValues({ ...creditCardValues, cardType: "Diners Club" });
+			} else if (checkSubstring(cardNumber, 2, "35")) {
+				setCreditCardValues({ ...creditCardValues, cardType: "JCB" });
+			} else {
+				setCreditCardValues({ ...creditCardValues, cardType: "" });
+			}
+		}
+	}, [creditCardValues.cardNumber]);
+
 	const { cardNumber, cardHolderName, cardExpirationDate, cardCVV, cardType } =
 		creditCardValues;
 	return (
@@ -18,7 +46,6 @@ const CreditCard = () => {
 					<div className="credit-card-front">
 						<div id="card-type">{cardType}</div>
 						<div id="card-number">{cardNumber}</div>
-
 						<div id="card-expiration">
 							{cardExpirationDate !== "" && (
 								<div id="validthru">Valid Thru</div>
